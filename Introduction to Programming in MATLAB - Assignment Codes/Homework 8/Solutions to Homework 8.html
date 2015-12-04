@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://class.coursera.org/matlab-002/wiki/Solutions_to_Homework_8 -->
+<html xmlns:fb="http://ogp.me/ns/fb#" itemtype="http://schema.org" class="supports-svg"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE7"><meta name="fragment" content="!"><meta name="robots" content="NOODP"><meta charset="utf-8"><meta property="og:title" content="Coursera"><meta property="og:type" content="website"><meta property="og:image" content="http://s3.amazonaws.com/coursera/media/Coursera_Computer_Narrow.png"><meta property="og:url" content="https://www.coursera.org/wiki/Solutions_to_Homework_8"><meta property="og:site_name" content="Coursera"><meta property="og:locale" content="en_US"><meta property="og:description" content="Take free online classes from 80+ top universities and organizations. Coursera is a social entrepreneurship company partnering with Stanford University, Yale University, Princeton University and others around the world to offer courses online for anyone to take, for free. We believe in connecting people to a great education so that anyone around the world can learn without limits."><meta property="fb:admins" content="727836538,4807654"><meta property="fb:app_id" content="274998519252278"><meta name="twitter:site" content="Coursera"><meta name="twitter:app:name:iphone" content="Coursera"><meta name="twitter:app:name:ipad" content="Coursera"><meta name="twitter:app:name:googleplay" content="Coursera"><meta name="twitter:app:id:iphone" content="id736535961"><meta name="twitter:app:id:ipad" content="id736535961"><meta name="twitter:app:id:googleplay" content="org.coursera.android"><meta name="description" content="Take free online classes from 80+ top universities and organizations. Coursera is a social entrepreneurship company partnering with Stanford University, Yale University, Princeton University and others around the world to offer courses online for anyone to take, for free. We believe in connecting people to a great education so that anyone around the world can learn without limits."><meta name="image" content="http://s3.amazonaws.com/coursera/media/Coursera_Computer_Narrow.png"><meta name="apple-itunes-app" content="app-id=736535961"><title>Coursera</title>    <link href="./Solutions to Homework 8_files/spark.main.css" rel="stylesheet" type="text/css">
+      <link href="./Solutions to Homework 8_files/course.css" rel="stylesheet" type="text/css">
+    <link href="https://spark-public.s3.amazonaws.com/matlab/static/images/favicon.ico" rel="icon">
+<script type="text/javascript" async="" src="./Solutions to Homework 8_files/ga.js"></script><script type="text/javascript" src="./Solutions to Homework 8_files/MathJax.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/routes" src="./Solutions to Homework 8_files/routes.js"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Coursera"><meta name="twitter:description" content="Take free online classes from 80+ top universities and organizations. Coursera is a social entrepreneurship company partnering with Stanford University, Yale University, Princeton University and others around the world to offer courses online for anyone to take, for free. We believe in connecting people to a great education so that anyone around the world can learn without limits."><meta name="twitter:image:src" content="http://s3.amazonaws.com/coursera/media/Coursera_Computer_Narrow.png"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/204" src="./Solutions to Homework 8_files/204.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/400" src="./Solutions to Homework 8_files/400.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/student-page" src="./Solutions to Homework 8_files/student-page.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/student-page.html" src="./Solutions to Homework 8_files/student-page.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/assessmentTypes/sparkSurveyQuestions/sparkSurveyQuestionsSessionModel" src="./Solutions to Homework 8_files/sparkSurveyQuestionsSessionModel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/assessmentTypes/quickQuestions/sessionModel" src="./Solutions to Homework 8_files/sessionModel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/nls/student-page" src="./Solutions to Homework 8_files/student-page(1).js"></script><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/assessmentTypes/SessionModel" src="./Solutions to Homework 8_files/sessionModel(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/framework/QuestionCollection" src="./Solutions to Homework 8_files/QuestionCollection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/framework/QuestionModel" src="./Solutions to Homework 8_files/QuestionModel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/lib/backbone.hascollections" src="./Solutions to Homework 8_files/backbone.hascollections.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/underscore.extend" src="./Solutions to Homework 8_files/underscore.extend.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/header" src="./Solutions to Homework 8_files/header.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/sidebar" src="./Solutions to Homework 8_files/sidebar.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/readme" src="./Solutions to Homework 8_files/readme.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/header.html" src="./Solutions to Homework 8_files/header.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/analytics/models/LearnerStoriesCollection" src="./Solutions to Homework 8_files/LearnerStoriesCollection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark-survey/assessApi" src="./Solutions to Homework 8_files/assessApi.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/sidebar.html" src="./Solutions to Homework 8_files/sidebar.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="spark/app/signature/js/signature_track" src="./Solutions to Homework 8_files/signature_track.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/nls/header" src="./Solutions to Homework 8_files/header(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/nls/sidebar" src="./Solutions to Homework 8_files/sidebar(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/analytics/models/LearnerStoryModel" src="./Solutions to Homework 8_files/LearnerStoryModel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="spark/app/signature/js/signatureTrackLastChanceModal.html" src="./Solutions to Homework 8_files/signatureTrackLastChanceModal.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="spark/app/signature/js/flexjoinLastChanceModal.html" src="./Solutions to Homework 8_files/flexjoinLastChanceModal.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/util" src="./Solutions to Homework 8_files/util.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/path" src="./Solutions to Homework 8_files/path.js"></script></head><body><div id="MathJax_Message" style="display: none;"></div><div id="fb-root"></div><div id="spark-help" class="hide"></div><a href="https://learner.coursera.help/hc/requests/new" target="_blank"><div style="z-index: 1" data-networkprioritysupportwidget="" role="button" class="helpwidget-tab hide">Premium Support</div></a><!-- - track IE8 and less browser for eventing purposes--><!--[if lte IE 8]><script>window._204 = window._204 || [];
+window._gaq = window._gaq || [];
+window._gaq.push(
+    ['_setAccount', 'UA-28377374-1'],
+    ['_setDomainName', window.location.hostname],
+    ['_setAllowLinker', true],
+    ['_trackPageview', window.location.pathname]);
+window._204.push(
+  ['client', 'home'],
+  {key:"pageview", value:window.location.pathname});</script><script src="https://dw0ugk4msqulk.cloudfront.net/e663d209f2d914b843d17bf8eb6eb533de598b16/js/lib/204.js"></script><script src="https://ssl.google-analytics.com/ga.js"></script><![endif]--><div id="fb-root"></div><div id="origami" data-js="origami"><div><div><div class="coursera-page"><div role="menubar" class="coursera-header"><div class="hidden">This page features MathJax technology to render mathematical formulae.
+If you are using a screen reader, please visit <a href="http://www.dessci.com/en/products/mathplayer/">MathPlayer</a> to download the plugin for your browser. Please note that this is an Internet Explorer-only plugin at this time.</div><h1 class="hidden">Introduction to Programming with MATLAB</h1><!-- UNTIL dashboard announcement expires 2014-12-01 (then delete this code)--><div class="helpcenter-announcement"><div data-readme="helpcenter-announcement" data-readme-show-count="1" data-readme-show-until-closed="data-readme-show-until-closed" data-readme-expires="Mar 31, 2015" class="readme" style="visibility: visible; display: none;"><div>Need technical help? Visit our new <a href="https://learner.coursera.help/" data-readme-close="data-readme-close">Learner Help Center!</a></div><div data-readme-close="data-readme-close" class="readme-close-icon"><span class="icon-remove"></span></div></div></div><div role="banner" class="course-topbar container-fluid"><div class="row-fluid"><div class="span3"><a href="https://www.coursera.org/" data-if-linkable="add-referrer" class="course-topbar-logo"></a></div><div style="float:right;" class="course-topbar-nav-container span9"><h2 class="hidden">Top Navigation Bar</h2><ul class="course-topbar-nav-list"><li class="course-topbar-nav-list-item"><a href="https://www.coursera.org/courses" data-if-linkable="add-referrer">Courses</a></li><li tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-owns="course-topbar-my" data-popup="#course-topbar-my" data-popup-bind-open="mouseenter" data-popup-close="data-popup-close" style="cursor:pointer;" data-popup-direction="se" class="course-topbar-nav-list-item"><a data-user-id="39836">Mohammad Muntasir Biojid Sirajee<i class="icon-caret-down"></i></a></li></ul></div></div><div id="course-topbar-aboutus" class="course-topbar-sublist"><a href="https://www.coursera.org//about/" target="_new" data-if-linkable="add-referrer" class="internal-about course-topbar-sublist-item">About Us</a><a href="https://www.coursera.org//about/careers" target="_new" data-if-linkable="add-referrer" class="internal-about course-topbar-sublist-item">Careers</a><a href="https://www.coursera.org//about/people" target="_new" data-if-linkable="add-referrer" class="internal-about course-topbar-sublist-item">People</a><a href="https://www.coursera.org//about/contact" target="_new" data-if-linkable="add-referrer" class="internal-about course-topbar-sublist-item">Contact Us</a></div><div id="course-topbar-my" class="course-topbar-sublist"><a data-popup-close="data-popup-close" href="https://www.coursera.org/" target="_new" class="course-topbar-sublist-item">My Courses</a><a data-popup-close="data-popup-close" href="https://www.coursera.org/account/profile" target="_new" class="course-topbar-sublist-item">Profile</a><a data-popup-close="data-popup-close" href="https://www.coursera.org/account/accomplishments" target="_new" class="course-topbar-sublist-item">Course Records</a><a href="https://www.coursera.org/account/settings" target="_new" class="course-topbar-sublist-item">Settings</a><a href="https://class.coursera.org/matlab-002/class/preferences" class="course-topbar-sublist-item">Course Preferences</a><form action="https://class.coursera.org/api/logoutSsr/v1?csrf3-token=1441943446.l2ISg95W24lT7v7P" method="post"><button data-popup-close="data-popup-close" type="submit" class="course-topbar-sublist-item">Sign Out</button></form></div></div><div class="course-topbanner-wrapper"><div class="course-topbanner"><div class="course-topbanner-university-logo"><a href="https://www.coursera.org/vanderbilt" target="_blank" data-if-linkable="add-referrer" title="https://www.coursera.org/vanderbilt" class="coursera-university-color"><img src="./Solutions to Homework 8_files/university_logo" alt="vanderbilt"></a></div><h1 class="course-topbanner-header"><a href="https://class.coursera.org/matlab-002/" data-if-linkable="modal-lock" class="course-topbanner-name coursera-university-color">Introduction to Programming with MATLAB</a><br><span style="" class="course-topbanner-instructor">by Akos Ledeczi, Michael Fitzpatrick, Robert Tairas</span></h1></div></div></div><div style="position:relative;" class="container-fluid"><div class="row-fluid"><div id="course-page-sidebar" role="navigation"><div role="menubar" class="coursera-sidebar"><div id="course-page-sidebar" role="navigation"><div class="course-navbar-container"><a href="https://class.coursera.org/matlab-002" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_index"><img src="./Solutions to Homework 8_files/logo" style="width: 205px;height: 116px;margin: -15px 0px 8px 1px; box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);" alt="Course Home Page"></a><div data-coursera-course-search-nav-widget="data-coursera-course-search-nav-widget" class="input-append course-search-nav-box"><form method="get" action="https://class.coursera.org/matlab-002/class/search" data-js-search-form="data-js-search-form" class="form-inline minimized-search"><label for="course-search-nav-input" class="accessible-text-for-reader">Search this course</label><input id="course-search-nav-input" type="text" name="q" data-js-search-input="data-js-search-input">&nbsp;<button type="submit" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="search" class="btn icon-search"><span class="accessible-text-for-reader">Search</span></button></form></div><h2 class="hidden">Side Navigation Bar</h2><ul class="course-navbar-list"><li class="course-navbar-item"><h3>Course</h3></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/class/index" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Announcements" class="coursera-university-color"><span>Announcements </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/lecture/index" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Video_Lectures" class="coursera-university-color"><span>Video Lectures </span><span></span></a></li><li class="course-navbar-item"></li><li class="course-navbar-item"></li><li class="course-navbar-item"><h3>About the course</h3></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/syllabus" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Syllabus" class="coursera-university-color"><span>Syllabus </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/GradingandLogistics" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Grading_and_Logistics" class="coursera-university-color"><span>Grading and Logistics </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Download_Matlab" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_MATLAB_Download" class="coursera-university-color"><span>MATLAB Download </span><span></span></a></li><li class="course-navbar-item"><a href="http://cs103.net/" target="_blank" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Recommended_Textbook" class="coursera-university-color"><span>Recommended Textbook </span><span class="icon-share"></span><span class="accessible-text-for-reader">opens in new browser tab</span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Errata" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Error_Corrections" class="coursera-university-color"><span>Error Corrections </span><span></span></a></li><li class="course-navbar-item"><h3>Weekly Modules</h3></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Lesson_1" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Lesson_1:_Introduction" class="coursera-university-color"><span>Lesson 1: Introduction </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Lesson_2" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Lesson_2:_Matrices" class="coursera-university-color"><span>Lesson 2: Matrices </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Lesson_3" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Lesson_3:_Functions" class="coursera-university-color"><span>Lesson 3: Functions </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Lesson_4" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Lesson_4:_Toolbox" class="coursera-university-color"><span>Lesson 4: Toolbox </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Lesson_5" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Lesson_5:_Selection" class="coursera-university-color"><span>Lesson 5: Selection </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Lesson_6" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Lesson_6:_Loops" class="coursera-university-color"><span>Lesson 6: Loops </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Lesson_7" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Lesson_7:_Datatypes" class="coursera-university-color"><span>Lesson 7: Datatypes </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Lesson_8" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Lesson_8:_File_I/O" class="coursera-university-color"><span>Lesson 8: File I/O </span><span></span></a></li><li class="course-navbar-item"><h3>Exercises</h3></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/wiki/Homework" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Homework" class="coursera-university-color"><span>Homework </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/quiz/index?quiz_type=survey" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Surveys_" class="coursera-university-color"><span>Surveys  </span><span></span></a></li><li class="course-navbar-item"><h3>Community</h3></li><li class="course-navbar-item"><a href="https://class.coursera.org/matlab-002/forum/index" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Discussion_Forums" class="coursera-university-color"><span>Discussion Forums </span><span></span></a></li></ul><ul style="list-style-type:none;margin-left: 10px;"><li><a href="https://accounts.coursera.org/i/zendesk/courserahelp?return_to=https://learner.coursera.help/hc/" target="_blank" title="Open help articles in new window" class="coursera-university-color"><i class="icon-question-sign"></i>Help Center</a></li></ul><ul style="list-style-type:none;margin-left: 10px;"></ul></div></div></div></div><div id="course-page-content" role="main"><div id="spark" class="hide" style="display: block;">
+<h2 class="course-page-header">
+    Solutions to Homework 8    <a class="coursera-reporter-link" title="Click here if you&#39;re experiencing technical problems or found errors in the course materials." target="_blank" href="https://accounts.coursera.org/i/zendesk/courserahelp?return_to=https://learner.coursera.help/hc/">
+      Help Center
+    </a>
+    <a data-coursera-admin-helpwidget-link="" rel="help" href="https://class.coursera.org/mooc/help/pages/setup" title="Course Page Setup" style="display:none;">Learn more.</a>
+</h2>
+
+
+<h3>Problem sparse_array_out<a></a>
+</h3>
+<pre class="codeinput"><span class="keyword">function</span> success = sparse_array_out (A, filename)
+    fid = fopen (filename,<span class="string">'w+'</span>);
+    success = fid&gt;=0;
+    <span class="keyword">if</span> ~success
+        error (<span class="string">'Error opening file %s\n'</span>,filename)
+    <span class="keyword">end</span>
+    [r,c,v] = find(A);                       <span class="comment">% locations and values of non-zero elements</span>
+    [nr,nc] = size(A);                       <span class="comment">% dimensions of A</span>
+    nze = length(v);                         <span class="comment">% number of non-zero elements</span>
+    fwrite (fid, [nr,nc,nze], <span class="string">'uint32'</span>);     <span class="comment">% global data</span>
+    <span class="keyword">for</span> k = 1:nze                            <span class="comment">% for each non-zero element ...</span>
+        fwrite (fid, [r(k),c(k)], <span class="string">'uint32'</span>); <span class="comment">% row-column index</span>
+        fwrite (fid, v(k), <span class="string">'double'</span>);        <span class="comment">% value</span>
+    <span class="keyword">end</span>
+    fclose(fid);
+<span class="keyword">end</span></pre>
+<h3>Problem sparse_array_in<a></a>
+</h3>
+<pre class="codeinput"><span class="keyword">function</span> A = sparse_array_in (filename)
+    A = [];
+    fid = fopen(filename,<span class="string">'r'</span>);
+    <span class="keyword">if</span> fid&lt;0
+        error (<span class="string">'Error opening file %s\n'</span>,filename)
+    <span class="keyword">end</span>
+    x = fread(fid,3,<span class="string">'uint32'</span>);                  <span class="comment">% global data (nr, nc, nze)</span>
+    A = zeros(x(1),x(2));                       <span class="comment">% initialize new nr x nc matrix</span>
+    <span class="keyword">for</span> k=1:x(3)                                <span class="comment">% for each non-zero element ...</span>
+        z = fread(fid,2,<span class="string">'uint32'</span>);              <span class="comment">% row, column</span>
+        A(z(1),z(2)) = fread(fid,1,<span class="string">'double'</span>);   <span class="comment">% value</span>
+    <span class="keyword">end</span>
+    fclose(fid);
+<span class="keyword">end</span>
+</pre>
+<h3>Probel letter_counter<a></a>
+</h3>
+<pre class="codeinput"><span class="keyword">function</span> n = letter_counter(fname)
+    fid = fopen(fname,<span class="string">'r'</span>);
+    <span class="keyword">if</span> fid &lt; 0
+        n = -1;
+    <span class="keyword">else</span>
+        x = fread(fid,inf,<span class="string">'char'</span>);      <span class="comment">% read entire file</span>
+        x = x(isletter(char(x)));       <span class="comment">% pick the letters</span>
+        n = length(x);                  <span class="comment">% count them</span>
+        fclose(fid);
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Probel letter_counter (alternative solution)<a></a>
+</h3>
+<p>A shorter variant</p>
+<pre class="codeinput"><span class="keyword">function</span> n = letter_counter(fname)
+    n = -1;
+    fid = fopen(fname,<span class="string">'r'</span>);
+    <span class="keyword">if</span> fid &gt;= 0
+        n = sum(isletter(fread(fid,inf,<span class="string">'char=&gt;char'</span>)));
+        fclose(fid);
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Problem saddle<a></a>
+</h3>
+<pre class="codeinput"><span class="keyword">function</span> s = saddle(M)
+    [r c] = size(M);
+    s = [];
+    <span class="keyword">if</span> r &gt; 1
+        cols = min(M);          <span class="comment">% find the min value in each column</span>
+    <span class="keyword">else</span>
+        cols = M;               <span class="comment">% vector is a special case, min would give a single value</span>
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> c &gt; 1
+        rows = max(M');         <span class="comment">% find the max value in each row</span>
+    <span class="keyword">else</span>
+        rows = M;               <span class="comment">% vector is a special case, max would give a single value</span>
+    <span class="keyword">end</span>
+    <span class="keyword">for</span> ii = 1:c                <span class="comment">% visit each column</span>
+        <span class="keyword">for</span> jj = 1:r            <span class="comment">% and each row, that is, each element of M</span>
+            <span class="keyword">if</span> M(jj,ii) == cols(ii) &amp;&amp; M(jj,ii) == rows(jj) <span class="comment">% if both conditions hold</span>
+                s = [s; jj ii];                             <span class="comment">% saddle point! Let's add it!</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Problem prime_pairs<a></a>
+</h3>
+<pre class="codeinput"><span class="keyword">function</span> p = prime_pairs(n)
+    <span class="keyword">if</span> isprime(2+n)             <span class="comment">% many times the answer is 2</span>
+        p = 2;
+    <span class="keyword">elseif</span> rem(n,2)             <span class="comment">% if not, and n is odd, no such prime exists</span>
+        p = -1;
+    <span class="keyword">else</span>
+        <span class="keyword">for</span> p = primes(1e5)     <span class="comment">% check all primes smaller than 100,000</span>
+            <span class="keyword">if</span> isprime(p+n)     <span class="comment">% if p+n is prime</span>
+                <span class="keyword">return</span>;         <span class="comment">% found it! Return immediately</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        p = -1;                 <span class="comment">% none found (btw, we never get here)</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+<span class="comment">% It turns out that for n-s smaller than 100,000 that are even, there is</span>
+<span class="comment">% always a pretty small such prime. In fact, the largest is 227.</span>
+<span class="comment">% So we could use primes(300) instead of primes(1e5) to make this even</span>
+<span class="comment">% faster. Also, the for-loop would be slow, if we did not check for even n-s,</span>
+<span class="comment">% since it would need to go through all primes smaller than 100,000 to</span>
+<span class="comment">% realize that no solution exists. So, handling the first two cases (p is 2</span>
+<span class="comment">% and n is odd) separately makes the function very efficient.</span>
+</pre>
+<h3>Problem prime_pairs (alternative solution)<a></a>
+</h3>
+<p>No loop at all. This illustrates yet again that there is always a MATLAB built-in function for almost anything reasonable...</p>
+<pre class="codeinput"><span class="keyword">function</span> p = prime_pairs(n)
+
+    allp = primes(1e5+n);       <span class="comment">% Get all primes up to max value + n</span>
+    p = intersect(allp,allp+n); <span class="comment">% Get which values are prime when n is added</span>
+    <span class="keyword">if</span> isempty(p)               <span class="comment">% Check to see if there are any such values</span>
+        p = -1;
+    <span class="keyword">else</span>
+        p = p(1)-n;             <span class="comment">% If so, subtract off the n to get the smaller value of the prime pair</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+<span class="comment">% Elegant solution, but because it does not check for odd n and because it</span>
+<span class="comment">% always handles the entire vector of primes even though the answer, if it</span>
+<span class="comment">% exists, is small, it is about 4x slower than the for-loop version above</span>
+<span class="comment">% even though the built-in function intersect is very fast.</span>
+</pre>
+<h3>Problem bowl<a></a>
+</h3>
+<pre class="codeinput"><span class="keyword">function</span> score = bowl(balls)
+    index = 0;                                  <span class="comment">% index into balls</span>
+    first = 1;                                  <span class="comment">% multiply next ball</span>
+    second = 1;                                 <span class="comment">% multiply ball after next</span>
+    score = 0;                                  <span class="comment">% cummulative sum</span>
+    <span class="keyword">if</span> sum(balls &gt; 10 | balls &lt; 0) &gt; 0          <span class="comment">% single hit must be between 0 and 10 inclusive</span>
+        score = -1;                             <span class="comment">% error!</span>
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    <span class="keyword">for</span> ii = 1:10                               <span class="comment">% first ten frames</span>
+        index = index + 1;                      <span class="comment">% take next ball</span>
+        <span class="keyword">if</span> index &gt; length(balls)                <span class="comment">% not enough balls</span>
+            score = -1;                         <span class="comment">% error!</span>
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+        score = score + first * balls(index);   <span class="comment">% count score including extra from previous strike or spare</span>
+        first = second;                         <span class="comment">% move multiplier value from second to first</span>
+        second = 1;                             <span class="comment">% reset multiplier for the ball after next to 1</span>
+        <span class="keyword">if</span> balls(index) == 10                   <span class="comment">% strike</span>
+            first = first + 1;                  <span class="comment">% so next counts extra</span>
+            second = 2;                         <span class="comment">% and so is the one after next</span>
+            <span class="keyword">continue</span>;                           <span class="comment">% go to next frame, there is no second ball in this one</span>
+        <span class="keyword">end</span>
+        index = index + 1;                      <span class="comment">% take next ball</span>
+        <span class="keyword">if</span> index &gt; length(balls)                <span class="comment">% not enough balls</span>
+            score = -1;                         <span class="comment">% error</span>
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+        score = score + first * balls(index);           <span class="comment">% count score including extra from previous strike</span>
+        first = second;                                 <span class="comment">% move multiplier value from second to first</span>
+        second = 1;                                     <span class="comment">% reset multpilier for the ball after next to 1</span>
+        <span class="keyword">if</span> balls(index) + balls(index -1) == 10         <span class="comment">% spare</span>
+            first = first + 1;                          <span class="comment">% so next counts extra</span>
+        <span class="keyword">elseif</span>  balls(index) + balls(index -1) &gt; 10     <span class="comment">% cannot score higher than 10 in a frame</span>
+            score = -1;                                 <span class="comment">% error!</span>
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    <span class="keyword">for</span> ii = [first second]                     <span class="comment">% max 2 extra balls if needed</span>
+        <span class="keyword">if</span> ii &lt; 2                               <span class="comment">% no extra ball here</span>
+            <span class="keyword">break</span>;                              <span class="comment">% we are done</span>
+        <span class="keyword">end</span>
+        index = index + 1;                      <span class="comment">% take next ball</span>
+        <span class="keyword">if</span> index &gt; length(balls)                <span class="comment">% not enough balls</span>
+            score = -1;                         <span class="comment">% error!</span>
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+        score = score + (ii-1) * balls(index);  <span class="comment">% extra balls: count them one less than a normal ball</span>
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> index &lt; length(balls)                    <span class="comment">% additional ball in the input</span>
+        score = -1;                             <span class="comment">% error!</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Problem maxsubsum<a></a>
+</h3>
+<p>traditional brute-force solution with four nested loops</p>
+<pre class="codeinput"><span class="keyword">function</span> [x y rr cc s] = maxsubsum(A)
+    [row col] = size(A);
+    <span class="comment">% initialize result to the 1-by-1 subarray at the top left corner of A</span>
+    x = 1;                                      <span class="comment">% top left corner of subarray</span>
+    y = 1;                                      <span class="comment">% top left corner of subarray</span>
+    rr = 1;                                     <span class="comment">% height of subarray</span>
+    cc = 1;                                     <span class="comment">% width of subarray</span>
+    s = A(1,1);                                 <span class="comment">% sum</span>
+
+    <span class="keyword">for</span> r = 1:row                               <span class="comment">% height of subarray</span>
+        <span class="keyword">for</span> c = 1:col                           <span class="comment">% width of subarray</span>
+            <span class="keyword">for</span> ii = 1:row-r+1                  <span class="comment">% start position row</span>
+                <span class="keyword">for</span> jj = 1:col-c+1              <span class="comment">% start position col</span>
+                    tmp = sum(sum(A(ii:ii+r-1,jj:jj+c-1))); <span class="comment">% sum up candidate</span>
+                    <span class="keyword">if</span> tmp &gt; s                  <span class="comment">% if larger than current max</span>
+                        s = tmp;                <span class="comment">% set the new values</span>
+                        x = ii;
+                        y = jj;
+                        cc = c;
+                        rr = r;
+                    <span class="keyword">end</span>
+                <span class="keyword">end</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Problem maxsubsum (alternative solution)<a></a>
+</h3>
+<p>Using Kadane's algorithm. Kadane's algorithm finds the contiguous subvector with the max sum within a vector using a single loop. For a detailed explanation, google "Kadane's algorithm maximum subarray problem." Using Kadane's algorithm, the solution is much faster than the previous solution because it needs only three nested loops. Try both with a 100x100 matrix and you'll see the difference :) &nbsp;This is somewhat tricky, so I could not possibly explain it with short comments. Consider the task of understanding it just another assignment :)</p>
+<pre class="codeinput"><span class="keyword">function</span> [fx1 fy1 rr cc mx] = maxsubsum(A)
+    [row col] = size(A);
+    mx = A(1,1)-1;
+    <span class="keyword">for</span> ii = 1:row
+        tmp = zeros(1,col);
+        <span class="keyword">for</span> jj = ii:row
+            tmp = tmp + A(jj,:);
+            [y1 y2 cur] = kadane(tmp);
+            <span class="keyword">if</span> cur &gt; mx
+                mx = cur;
+                fx1 = ii;
+                rr  = jj-ii+1;
+                fy1 = y1;
+                cc  = y2-y1+1;
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> [x1, x2, mx] = kadane(v)
+    mx = v(1);
+    x1 = 1; x2 = 1;
+    cx1 = 1;
+    cur = 0;
+    <span class="keyword">for</span> ii = 1:length(v)
+        cur = cur+v(ii);
+        <span class="keyword">if</span>(cur &gt; mx)
+            mx = cur;
+            x2 = ii;
+            x1 = cx1;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> cur &lt; 0
+            cur = 0;
+            cx1 = ii + 1;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Problem queen check<a></a>
+</h3>
+<p>It uses the fact that a diagonal either starts in the first column or ends in the last column (or both). Only sum and max built-in functions are used.</p>
+<pre class="codeinput"><span class="keyword">function</span> ok = queen_check(board)
+    n = 8;
+    ok = true;
+    v = board(:);                           <span class="comment">% create a vector in col major order</span>
+    w = v(end:-1:1);                        <span class="comment">% reverse order, so last col becomes first col</span>
+    <span class="keyword">for</span> ii = 1:n
+        tests = [
+                sum(board(:,ii))            <span class="comment">% row #ii</span>
+                sum(board(ii,:))            <span class="comment">% col #ii</span>
+                sum(v(ii:n+1:(n-ii+1)*n))   <span class="comment">% diagonal starting in the first column going down</span>
+                sum(v(ii:n-1:ii*n-1))       <span class="comment">% diagonal starting in the first column going up</span>
+                sum(w(ii:n+1:(n-ii+1)*n))   <span class="comment">% diagonal starting in the last  column going up</span>
+                sum(w(ii:n-1:ii*n-1))       <span class="comment">% diagonal starting in the last  column going down</span>
+                ];
+        <span class="keyword">if</span> max(tests) &gt; 1                   <span class="comment">% these should be all 0 or 1</span>
+            ok = false;                     <span class="comment">% otherwise return false</span>
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Problem queen check (alternative solution)<a></a>
+</h3>
+<p>Surprise, surprise: MATLAB has a built-in function called diag and flip</p>
+<pre class="codeinput"><span class="keyword">function</span> safe = queen_check (B)
+    inC = sum(B);                       <span class="comment">% sum of queens in each column</span>
+    inR = sum(B,2)';                    <span class="comment">% sum of queens in each row</span>
+    F = flip(B);                        <span class="comment">% flipped board for antidiagonals</span>
+    <span class="keyword">for</span> k=-6:6
+        inD(k+8) = sum(diag(B,k));      <span class="comment">% sum of queens in each diagonal</span>
+        inE(k+8) = sum(diag(F,k));      <span class="comment">% sum of queens in each antidiagonal</span>
+    <span class="keyword">end</span>
+    safe = max([inR inC inD inE])&lt;=1;   <span class="comment">% queen counts at most one</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Problem roman2<a></a>
+</h3>
+<p>Nice and short solution</p>
+<pre class="codeinput"><span class="keyword">function</span> A = roman2 (R)
+<span class="comment">% This function initially assumes the supplied input is valid. If it is not valid,</span>
+<span class="comment">% the result, when converted back to Roman, will differ from the original input.</span>
+    Roman = <span class="string">'IVXLC'</span>;
+    Arabic = {1 5 10 50 100};
+    LastValue = 0;                  <span class="comment">% V is value, LastValue is last V</span>
+    A = uint16(0);
+    <span class="keyword">for</span> k = length(R):-1:1          <span class="comment">% scan backward from last character</span>
+        P = strfind(Roman,R(k));    <span class="comment">% search list of valid Roman characters</span>
+        <span class="keyword">if</span> isempty(P)               <span class="comment">% if invalid</span>
+            V = 0;                  <span class="comment">% value is zero</span>
+        <span class="keyword">else</span>                        <span class="comment">% else</span>
+            V = Arabic{P};          <span class="comment">% value is Arabic equivalent</span>
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> V&lt;LastValue              <span class="comment">% if subtractive situation</span>
+            A = A-V;                <span class="comment">% subtract this value</span>
+        <span class="keyword">else</span>                        <span class="comment">% else</span>
+            A = A+V;                <span class="comment">% add this value</span>
+        <span class="keyword">end</span>                         <span class="comment">% (in either case, V=0 did nothing)</span>
+        LastValue = V;              <span class="comment">% update last value used</span>
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> A&gt;=400 || ~strcmp(R,A2R(A))  <span class="comment">% if out of range or result does</span>
+        A = uint16(0);              <span class="comment">% not generate original string</span>
+    <span class="keyword">end</span>                             <span class="comment">% send back zero</span>
+<span class="keyword">end</span>
+
+<span class="comment">% convert Arabic to Roman</span>
+<span class="keyword">function</span> R = A2R (A)
+<span class="comment">% Remove subtraction by including secondary moduli.</span>
+    Roman = {<span class="string">'I'</span> <span class="string">'IV'</span> <span class="string">'V'</span> <span class="string">'IX'</span> <span class="string">'X'</span> <span class="string">'XL'</span> <span class="string">'L'</span> <span class="string">'XC'</span> <span class="string">'C'</span>};
+    Arabic = {1 4 5 9 10 40 50 90 100};
+    R = <span class="string">''</span>; k = 9;
+    <span class="keyword">while</span> k&gt;0                       <span class="comment">% remove larger moduli first</span>
+        <span class="keyword">if</span> A&gt;=Arabic{k}             <span class="comment">% if value is at least current modulus</span>
+            A = A-Arabic{k};        <span class="comment">% remove modulus from value</span>
+            R = [R Roman{k}];       <span class="comment">% append Roman character</span>
+        <span class="keyword">else</span>                        <span class="comment">% else</span>
+            k = k-1;                <span class="comment">% consider next smaller modulus</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Problem roman2 (alternative implementation)<a></a>
+</h3>
+<p>Uses a Finite State Machine (FSM). For a detailed description, <a href="https://d396qusza40orc.cloudfront.net/matlab/homeworks/FSM-Desc.pdf" target="_blank">download this PDF document</a>.</p>
+<pre class="codeinput"><span class="keyword">function</span> num = roman2(rom)
+<span class="comment">% State machine-based implementation</span>
+        <span class="comment">% the variable states contain the value of each state</span>
+        <span class="comment">% the index into this vector is the ID of the given state</span>
+    states = [0 1 1 1 3 8 5 1 1 1 10 10 10 30 80 50 10 10 10 100 100 100];
+        <span class="comment">% each row of trans contains one state transition</span>
+        <span class="comment">% 1st col: current state; 2nd col: input char; 3rd col: next state</span>
+    trans = [
+        1  <span class="string">'I'</span>  2; 1  <span class="string">'X'</span> 11;  1 <span class="string">'C'</span> 20; 1 <span class="string">'L'</span> 16; 1  <span class="string">'V'</span>  7;
+        2  <span class="string">'I'</span>  3; 2  <span class="string">'V'</span>  5;  2 <span class="string">'X'</span>  6;
+        3  <span class="string">'I'</span>  4;
+        7  <span class="string">'I'</span>  8;
+        8  <span class="string">'I'</span>  9;
+        9  <span class="string">'I'</span> 10;
+        11 <span class="string">'X'</span> 12; 11 <span class="string">'V'</span>  7; 11 <span class="string">'I'</span>  2; 11 <span class="string">'L'</span> 14; 11 <span class="string">'C'</span> 15;
+        12 <span class="string">'X'</span> 13; 12 <span class="string">'V'</span>  7; 12 <span class="string">'I'</span>  2;
+        13 <span class="string">'V'</span>  7; 13 <span class="string">'I'</span>  2;
+        14 <span class="string">'V'</span>  7; 14 <span class="string">'I'</span>  2;
+        15 <span class="string">'V'</span>  7; 15 <span class="string">'I'</span>  2;
+        16 <span class="string">'V'</span>  7; 16 <span class="string">'I'</span>  2; 16 <span class="string">'X'</span> 17;
+        17 <span class="string">'V'</span>  7; 17 <span class="string">'I'</span>  2; 17 <span class="string">'X'</span> 18;
+        18 <span class="string">'V'</span>  7; 18 <span class="string">'I'</span>  2; 18 <span class="string">'X'</span> 19;
+        19 <span class="string">'V'</span>  7; 19 <span class="string">'I'</span>  2;
+        20 <span class="string">'V'</span>  7; 20 <span class="string">'I'</span>  2; 20 <span class="string">'C'</span> 21; 20 <span class="string">'X'</span> 11; 20 <span class="string">'L'</span> 16;
+        21 <span class="string">'V'</span>  7; 21 <span class="string">'I'</span>  2; 21 <span class="string">'C'</span> 22; 21 <span class="string">'X'</span> 11; 21 <span class="string">'L'</span> 16;
+        22 <span class="string">'V'</span>  7; 22 <span class="string">'I'</span>  2; 22 <span class="string">'X'</span> 11; 22 <span class="string">'L'</span> 16;
+    ];
+
+    state = 1;                                          <span class="comment">% initial state: 1</span>
+    num = 0;                                            <span class="comment">% initial value: 0</span>
+    <span class="keyword">for</span> ii = 1:length(rom)                              <span class="comment">% take input from left</span>
+        state = next_state(state, rom(ii), trans);      <span class="comment">% find next state</span>
+        <span class="keyword">if</span> state == -1                                  <span class="comment">% no such transition</span>
+            num = 0;                                    <span class="comment">% illegal roman number</span>
+            <span class="keyword">break</span>;                                      <span class="comment">% get out</span>
+        <span class="keyword">end</span>
+        num = num + states(state);                      <span class="comment">% otherwise, increase value</span>
+    <span class="keyword">end</span>
+    num = uint16(num);
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> state = next_state(state,ch,trans)
+    <span class="keyword">for</span> ii = 1:size(trans,1)                            <span class="comment">% check each legal transition</span>
+        <span class="keyword">if</span> trans(ii,1) == state &amp;&amp; trans(ii,2) == ch    <span class="comment">% for current state and input char</span>
+            state = trans(ii,3);                        <span class="comment">% return next state</span>
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    state = -1;                                         <span class="comment">% no transition found</span>
+<span class="keyword">end</span>
+</pre>
+<h3>Problem bell<a></a>
+</h3>
+<pre class="codeinput"><span class="keyword">function</span> x = bell(n)
+    <span class="comment">% Check input (integer &gt;= 1)</span>
+    <span class="keyword">if</span> (n ~= floor(n)) || (n &lt; 1)
+        x = [];
+    <span class="keyword">elseif</span> (n == 1)
+        <span class="comment">% Special case of n = 1</span>
+        x = 1;
+    <span class="keyword">else</span>
+        <span class="comment">% Make matrix of zeros</span>
+        x = zeros(n);
+        <span class="comment">% Fill in top-left corner for 2-by-2</span>
+        x(1:2,1:2) = [1 2;1 0];
+        <span class="comment">% Loop over remaining "lines"</span>
+        <span class="keyword">for</span> k = 3:n
+            <span class="comment">% 1st element of the line k is the last element of line k-1</span>
+            x(k,1) = x(1,k-1);
+            <span class="comment">% Loop over the remaining elements</span>
+            <span class="keyword">for</span> j = 2:k
+                <span class="comment">% jth element is sum of j-1 element of current line plus</span>
+                <span class="comment">% j-1 element of previous line</span>
+                x(k-j+1,j) = x(k-j+1,j-1) + x(k-j+2,j-1);
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB® R2014a</a><br></p>
+
+<hr>
+<div>
+    <div style="float:left">
+    	    	    </div>
+    <div style="float:right;text-align:right;font-size:10px;">
+    	Created Mon 15 Jun 2015  2:29 PM MDT<br>
+    	Last Modified Thu  3 Sep 2015  8:14 AM MDT    </div>
+</div>
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  
+  styleSheets: [],
+  styles: {},
+
+  jax: ["input/TeX"],
+  
+  extensions: ["tex2jax.js"],
+
+  preJax: null,
+  postJax: null,
+
+  preRemoveClass: "MathJax_Preview",
+
+  showProcessingMessages: true,
+
+  messageStyle: "none",
+  
+  displayAlign: "center",
+  displayIndent: "0em",
+  
+  delayStartupUntil: "none",
+
+  skipStartupTypeset: false,
+  
+  elements: [],
+  
+  tex2jax: {
+	    inlineMath: [
+	                 ['$$','$$'],      // uncomment this for standard TeX math delimiters
+	                 ['\\(','\\)']
+	                 ],
+
+	                 displayMath: [
+	                 ['\\[','\\]']
+	                 ],
+
+    skipTags: ["script","noscript","style","textarea","pre","code"],
+    ignoreClass: "tex2jax_ignore",
+    processClass: "tex2jax_process",
+    processEscapes: false,
+    processEnvironments: true,
+    preview: "TeX"
+    
+  },
+  
+  mml2jax: {
+    preview: "alttext"
+    
+  },
+  
+  jsMath2jax: {
+    preview: "TeX"
+    
+  },
+
+  TeX: {
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    Macros: {},
+
+    extensions: ["AMSmath.js", "AMSsymbols.js"]
+    
+  },
+
+  //============================================================================
+  //
+  //  These parameters control the MathML inupt jax.
+  //
+  MathML: {
+    //
+    //  This specifies whether to use TeX spacing or MathML spacing when the
+    //  HTML-CSS output jax is used.
+    //
+    useMathMLspacing: false
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the HTML-CSS output jax.
+  //
+  "HTML-CSS": {
+    
+    scale: 100,
+    
+    availableFonts: ["STIX","TeX"],
+    
+    preferredFont: "TeX",
+    
+    webFont: "TeX",
+    
+    imageFont: "TeX",
+    
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif",
+      
+    showMathMenu: true,
+
+    styles: {},
+    
+    tooltip: {
+      delayPost: 600,          // milliseconds delay before tooltip is posted after mouseover
+      delayClear: 600,         // milliseconds delay before tooltip is cleared after mouseout
+      offsetX: 10, offsetY: 5  // pixels to offset tooltip from mouse position
+    }
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the NativeMML output jax.
+  //
+  NativeMML: {
+
+    scale: 100,
+
+    showMathMenu: true,
+    showMathMenuMSIE: true,
+
+    styles: {}
+  },
+  
+  MathMenu: {
+    delay: 400,
+    
+    helpURL: "http://www.mathjax.org/help/user/",
+
+    showRenderer: true,
+    showFontMenu: false,
+    showContext:  false,
+
+    windowSettings: {
+      status: "no", toolbar: "no", locationbar: "no", menubar: "no",
+      directories: "no", personalbar: "no", resizable: "yes", scrollbars: "yes",
+      width: 100, height: 50
+    },
+    
+    styles: {}
+    
+  },
+
+  MMLorHTML: {
+    prefer: {
+      MSIE:    "MML",
+      Firefox: "HTML",
+      Opera:   "HTML",
+      other:   "HTML"
+    }
+  }
+});
+</script>
+</div></div></div></div></div><div class="coursera-footer"></div></div></div></div><!--[if gte IE 9]><script>document.getElementById("coursera-loading-js").style.display = 'block';</script><![endif]-->
+<!--[if lte IE 8]><script>document.getElementById("coursera-loading-nojs").style.display = 'block';</script><![endif]-->
+<!--[if !IE]> --><script>document.getElementById("coursera-loading-js").style.display = 'block';</script><!-- <![endif]--><script>if (/zh/i.test(window.localStorage ? localStorage.getItem('locale') : '') || '{{ locale }}') {
+  document.getElementById('get-browser-zh').style.display = 'block';
+}</script><!--[if !IE]> --><script>document.getElementById('coursera-loading-js').style.display = 'block';</script><!-- <![endif]-->
+    <script src="./Solutions to Homework 8_files/jquery.v1-7.js"></script>
+      <script src="./Solutions to Homework 8_files/loadOrRefreshMathJax.js"></script>
+      <script src="./Solutions to Homework 8_files/textbook_wiki.js"></script>
+  <script src="./Solutions to Homework 8_files/require.v2-1-1.js"></script><script data-baseurl="https://dw0ugk4msqulk.cloudfront.net/e663d209f2d914b843d17bf8eb6eb533de598b16/" data-version="e663d209f2d914b843d17bf8eb6eb533de598b16" data-timestamp="1441315312985" data-debug="0" data-locale="en_US" id="_require">if(document.getElementById('coursera-loading-js').style.display == 'block') {
+  (function(el) {
+     require.config({
+       //enforceDefine: true,
+       waitSeconds: 75,
+       baseUrl: el.getAttribute('data-baseurl'),
+       urlArgs: el.getAttribute('data-debug') == '1' ? 'v=' + el.getAttribute('data-timestamp') : '',
+       shim: {
+          'underscore': {
+             exports: '_'
+          },
+          'backbone': {
+             deps: ['underscore', 'jquery'],
+             exports: 'Backbone',
+             init: function(_, $) {
+               Backbone.$ = $;
+               return Backbone;
+             }
+          },
+          'pages/hg/thirdparty/js/backbone.marionette': {
+            deps: ['backbone']
+          },
+          'pages/hg/thirdparty/js/webshims/polyfiller': {
+            deps: ['jquery']
+          },
+          'pages/hg/thirdparty/js/webshims/extras/mousepress': {
+            deps: ['jquery', 'pages/hg/thirdparty/js/webshims/polyfiller']
+          },
+          'pages/hg/thirdparty/js/jquery.throttle': {
+            deps: ['jquery']
+          },
+          'js/lib/jquery.linkify': {
+            deps: ['jquery']
+          },
+          'pages/hg/thirdparty/js/js/bootstrap/alert': {
+            deps: ['jquery', 'pages/hg/thirdparty/js/bootstrap/transition']
+          },
+          'spark/core/js/jquery_ui': {
+            deps: ['jquery']
+          },
+          'spark/core/js/jquery.history': {
+            deps: ['jquery']
+          },
+          'js/lib/bootstrap.tooltip': {
+            deps: ['jquery']
+          },
+          'pages/hg/thirdparty/js/bootstrap/transition': {
+            deps: ['jquery']
+          },
+          'pages/hg/thirdparty/js/bootstrap/tab': {
+            deps: ['jquery']
+          },
+          'bundles/videojs/lib/video.4.3.0': {
+            exports: 'vjs'
+          }
+       },
+       paths: {
+          'q': 'js/vendor/q.v1-0-1',
+          'react-with-addons': 'js/vendor/react-with-addons.v0-12',
+          'jquery':                         'pages/spark/jquery',
+          'underscore':                     'js/vendor/underscore.v1-5-2',
+          'backbone':                       'js/vendor/backbone.v1-1-0',
+          'backbone.relational':            'js/lib/backbone.relational.0.8.6',
+          'i18n':                           'js/lib/i18n._t',
+          'css':                            'js/vendor/require.css.v0-1-2',
+          'memoize':                        'js/lib/require.memoize.v0-0-1',
+          'pages/spark/models/user.json':   'empty:',
+          'pages/spark/models/course.json': 'empty:',
+          'pages/spark/models/navbar.json': 'empty:'
+       },
+       callback: function() {
+                    require(['pages/spark/routes']);
+                },
+       config: {
+         i18n: {
+           locale: (window.localStorage ? localStorage.getItem('locale') : '') || el.getAttribute('data-locale')
+         }
+       }
+     });
+  })(document.getElementById('_require'));
+}
+</script><script>define('pages/spark/models/user.json', [], function(){
+      return JSON.parse("{\"id\":39836,\"email_address\":\"muntasir2165@hotmail.com\",\"full_name\":\"Mohammad Muntasir Biojid Sirajee\",\"locale\":\"en_US\",\"timezone\":\"America\\\/Edmonton\",\"access_group_id\":\"4\",\"registration_time\":\"1434567569\",\"last_access_time\":\"1441603583\",\"last_access_ip\":\"75.159.6.53\",\"signature_track_register_time\":\"0\",\"email_announcement\":\"1\",\"email_forum\":\"1\",\"in_signature_track\":\"0\",\"wishes_proctored_exam\":\"0\",\"first_name\":\"Mohammad\",\"permissions\":[\"default\",\"allow_site_access\"],\"group\":\"Student\",\"anonymous\":false,\"forum_title\":\"Student\",\"signature_track_state\":1,\"verified_quizzes\":[],\"submitted_quizzes\":[\"27\",\"29\",\"55\",\"81\",\"119\",\"131\",\"135\",\"137\",\"139\"],\"scheduled_proctored_exam\":null,\"last_chance_modal\":1,\"flexjoin_last_chance_modal\":null}");
+  });
+define('pages/spark/models/course.json', [], function(){
+      return JSON.parse("{\"id\":975763,\"isPrivate\":false,\"type\":\"public\",\"name\":\"Introduction to Programming with MATLAB\",\"instructor\":\"Akos Ledeczi, Michael Fitzpatrick, Robert Tairas\",\"sessionName\":\"matlab-002\",\"externalBaseURL\":\"https:\\\/\\\/www.coursera.org\\\/\",\"shortname\":\"matlab\",\"host\":\"https:\\\/\\\/www.coursera.org\\\/\",\"assetUnversionedLink\":\"https:\\\/\\\/dw0ugk4msqulk.cloudfront.net\\\/\",\"cheggID\":\"\",\"hasLTI\":true,\"badgevilleDomain\":\"\",\"linkable\":false,\"universityShortname\":\"vanderbilt\",\"signatureTrackStatus\":{\"signature_track_enabled\":1},\"courseURLs\":{\"log_in_link\":\"https:\\\/\\\/www.coursera.org\\\/login?post_redirect=https%3A%2F%2Fwww.coursera.org%2Flogin%3Fuser_action%3Dclass%26course_id%3D975763%26post_redirect%3Dhttps%253A%252F%252Fclass.coursera.org%252Fmatlab-002%252Fauth%252Fauth_redirector%253Ftype%253Dlogin%2526subtype%253Dnormal%2526visiting%253D\",\"sign_up_link\":\"https:\\\/\\\/www.coursera.org\\\/signup?enroll_cid=975763&enroll_sn=matlab&enroll_n=Introduction to Programming with MATLAB\",\"view_course_info_link\":\"https:\\\/\\\/www.coursera.org\\\/course\\\/matlab\",\"sign_up_link_cant_enroll\":\"https:\\\/\\\/www.coursera.org\\\/signup?post_redirect=https%3A%2F%2Fwww.coursera.org%2Fcourse%2Fmatlab\"},\"courseBase\":\"https:\\\/\\\/class.coursera.org\\\/matlab-002\\\/\",\"search\":true,\"hideWiki\":true,\"aceStartRegistrationDate\":\"Wed 31 Dec 1969  5:00 PM MST\",\"aceEndRegistrationDate\":\"Wed 31 Dec 1969  5:00 PM MST\",\"aceExamStartDate\":\"Wed 31 Dec 1969  5:00 PM MST\",\"aceExamEndDate\":\"Wed 31 Dec 1969  5:00 PM MST\",\"aceExamRules\":\"\",\"aceExamDuration\":\"\",\"aceBeforeExam\":false,\"aceAfterExam\":true,\"aceHours\":null,\"aceCreditType\":\"\",\"acePrice\":null,\"aceExamID\":null,\"aceEligible\":false,\"canRegisterForACE\":false,\"specialization\":null,\"supportForums\":true,\"textbooks\":\"\",\"inVideoQuizV2\":true,\"in_flexjoin\":0,\"honorCodeExtraText\":\"\",\"honorCodeCustomTitle\":\"\",\"honorCodeCustomButton\":\"\",\"studentAccessDisabled\":0,\"disableQQs\":false}");
+  });
+  define('pages/spark/models/navbar.json', [], function(){
+      return JSON.parse("{\"items\":[{\"name\":\"Course\",\"icon\":\"\",\"link_type\":\"heading\",\"link_data\":\"\"},{\"name\":\"Announcements\",\"icon\":\"home\",\"link_type\":\"circuit\",\"link_data\":\"class:index\"},{\"name\":\"Video Lectures\",\"icon\":\"lecture\",\"link_type\":\"circuit\",\"link_data\":\"lecture:index\"},{\"name\":\"\",\"icon\":\"\",\"link_type\":\"circuit\",\"link_data\":\"\"},{\"name\":\"\",\"icon\":\"\",\"link_type\":\"circuit\",\"link_data\":\"\"},{\"name\":\"About the course\",\"icon\":\"\",\"link_type\":\"heading\",\"link_data\":\"\"},{\"name\":\"Syllabus\",\"icon\":\"wiki\",\"link_type\":\"wiki\",\"link_data\":\"syllabus\"},{\"name\":\"Grading and Logistics\",\"icon\":\"wiki\",\"link_type\":\"wiki\",\"link_data\":\"GradingandLogistics\"},{\"name\":\"MATLAB Download\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Download_Matlab\"},{\"name\":\"Recommended Textbook\",\"icon\":\"\",\"link_type\":\"window_link\",\"link_data\":\"http:\\\/\\\/cs103.net\"},{\"name\":\"Error Corrections\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Errata\"},{\"name\":\"Weekly Modules\",\"icon\":\"\",\"link_type\":\"heading\",\"link_data\":\"\"},{\"name\":\"Lesson 1: Introduction\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Lesson_1\"},{\"name\":\"Lesson 2: Matrices\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Lesson_2\"},{\"name\":\"Lesson 3: Functions\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Lesson_3\"},{\"name\":\"Lesson 4: Toolbox\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Lesson_4\"},{\"name\":\"Lesson 5: Selection\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Lesson_5\"},{\"name\":\"Lesson 6: Loops\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Lesson_6\"},{\"name\":\"Lesson 7: Datatypes\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Lesson_7\"},{\"name\":\"Lesson 8: File I\\\/O\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Lesson_8\"},{\"name\":\"Exercises\",\"icon\":\"\",\"link_type\":\"heading\",\"link_data\":\"\"},{\"name\":\"Homework\",\"icon\":\"quiz\",\"link_type\":\"wiki\",\"link_data\":\"Homework\"},{\"name\":\"Surveys \",\"icon\":\"quiz\",\"link_type\":\"circuit\",\"link_data\":\"quiz:index?quiz_type=survey\"},{\"name\":\"Community\",\"icon\":\"\",\"link_type\":\"heading\",\"link_data\":\"\"},{\"name\":\"Discussion Forums\",\"icon\":\"forum\",\"link_type\":\"circuit\",\"link_data\":\"forum:index\"}]}");
+  });
+</script><script>var coursera_enable_new_help_center = true;
+</script><div class="hide confirm-navigation modal"><div class="modal-header"><h3>Confirm Navigation</h3></div><div class="modal-body"><div class="confirm-navigation-message"></div><div>Are you sure you want to leave this page?</div></div><div class="modal-footer"><button data-modal-close="data-modal-close" class="btn confirm-navigation-stay">Stay on this Page</button><button data-modal-close="data-modal-close" class="btn btn-danger confirm-navigation-leave">Leave this Page</button></div></div><div class="coursera-async-message" style="display: none;"></div></body></html>
