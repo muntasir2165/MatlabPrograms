@@ -1,0 +1,19 @@
+function output = caesar(v,n)
+num = double(v)
+num1 = num;
+N = n - 95 * fix(n/95)
+for i = 1:length(num)
+    if num(i) + N < 32
+        num1(i) = 126 - ( 31 - num(i) - N)
+    elseif num(i) + N > 126
+        num1(i) = 32 + (num(i) + N - 127)
+    else
+        num1(i) = num(i) + N
+    end
+    output = char(num1)
+end
+        
+coded    = caesar('ABCD',  3)
+decoded  = caesar(coded,  -3)
+wrap     = caesar('1234', 96)
+back     = caesar(wrap,  -96)
